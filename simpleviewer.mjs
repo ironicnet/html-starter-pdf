@@ -13,9 +13,20 @@
  * limitations under the License.
  */
 
+/**
+ * PDF a Cargar
+ */
+const DEFAULT_URL = "./today.pdf";
+/**
+ * Texto a Buscar
+ */
+const SEARCH_FOR = ""; // try "Mozilla";
+/**
+ * ESTAS SON COSAS DE PDFJS
+ */
 if (!pdfjsLib.getDocument || !pdfjsViewer.PDFViewer) {
   // eslint-disable-next-line no-alert
-  alert("Please build the pdfjs-dist library using\n  `gulp dist-install`");
+  console.error("Please build the pdfjs-dist library using\n  `gulp dist-install`");
 }
 
 // The workerSrc property shall be specified.
@@ -28,12 +39,10 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 const CMAP_URL = "https://unpkg.com/pdfjs-dist@4.3.136/cmaps/";
 const CMAP_PACKED = true;
 
-const DEFAULT_URL = "./today.pdf";
 // To test the AcroForm and/or scripting functionality, try e.g. this file:
 // "../../test/pdfs/160F-2019.pdf"
 
 const ENABLE_XFA = true;
-const SEARCH_FOR = ""; // try "Mozilla";
 
 const SANDBOX_BUNDLE_SRC = new URL(
   "https://unpkg.com/pdfjs-dist@4.3.136/build/pdf.sandbox.mjs",
